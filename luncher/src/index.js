@@ -14,7 +14,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 //import reducer//
-
+import reducer from './components/reducers/index';
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
