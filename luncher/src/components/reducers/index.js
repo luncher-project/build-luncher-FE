@@ -1,0 +1,21 @@
+//import action types from actions//
+import {
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+
+    FETCH_DATA,
+    FETCH_DATA_SUCCESS,
+    FETCH_DATA_FAILURE,
+
+    CREATE_DATA,
+    CREATE_DATA_SUCCESS,
+    CREATE_DATA_FAILURE,
+
+    DELETE_DATA,
+    DELETE_DATA_SUCCESS,
+    DELETE_DATA_FAILURE,
+
+    EDIT_DATA,
+    EDIT_DATA_SUCCESS,
+    EDIT_DATA_FAILURE } from '../actions';
