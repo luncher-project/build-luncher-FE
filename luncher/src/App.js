@@ -6,6 +6,7 @@ import { Route, NavLink, Link } from 'react-router-dom';
 //add components//
 import LogIn from './components/login/LogIn';
 import SignUp from './components/signup/SignUp';
+import AdminForm from './components/Admin form/AdminForm';
 
 
 class App extends Component {
@@ -18,8 +19,7 @@ class App extends Component {
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
-      {/* //  <LogIn />
-      //  <SignUp /> */}
+      <Route path='/login/admin-form' component={AdminForm} />
        </div>
     );
   }

@@ -27,6 +27,7 @@ handlerChanges= event => {
 }
 
 //login fn will go here 
+//login will be name of action creator 
 
 login = event => {
     event.preventDefault();
@@ -40,12 +41,12 @@ render() {
         <div>
             <h2>Sign In- Luncher Account</h2>
          <form>
-        <input className='user-field'
+        <input className='email-field'
             type='text'
-            placeholder='Username'
-            name='username'
+            placeholder='Email'
+            name='email'
             onChange={this.handlerChanges}
-            value={this.state.credentials.username}
+            value={this.state.credentials.email}
             />
         <input className='pwd-field'
             type='password'
