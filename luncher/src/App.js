@@ -16,6 +16,7 @@ class App extends Component {
       <div className='nav-bar'>
       <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
+      <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
@@ -26,3 +27,5 @@ class App extends Component {
 }
 
 export default App;
+
+//need to protect admin page and add authentication for it 

@@ -38,7 +38,7 @@ onChange = event => {
 
 
 //submit form 
-//bring in the post function//
+//bring in the post function, we'll call it addSchool //
 onSubmit = event => {
     event.preventDefault();
     this.props.addSchool(this.state.school)
@@ -66,7 +66,7 @@ render() {
             <p>Let's get you added to the Luncher list of schools. Once you're signed up,
              donors can select your school and start donating to your lunch fund.</p>
             </div>
-            <form> 
+            <form onSubmit={this.onSubmit}> 
             <input 
             onChange={this.onChange}
             name='name'

@@ -27,7 +27,7 @@ handlerChanges= event => {
 }
 
 //login fn will go here 
-//login will be name of action creator 
+//login will be name of action creator/axios request we'll call login//
 
 login = event => {
     event.preventDefault();
@@ -40,7 +40,7 @@ render() {
     return(
         <div>
             <h2>Sign In- Luncher Account</h2>
-         <form>
+         <form onSubmit={this.login}>
         <input className='email-field'
             type='text'
             placeholder='Email'
