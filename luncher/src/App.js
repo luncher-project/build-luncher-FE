@@ -13,11 +13,13 @@ class App extends Component {
     return (
       <div className="App">
       <div className='nav-bar'>
-      <NavLink exact to='/login'>LogIn</NavLink>
+      <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
       </div>
-       <LogIn />
-       <SignUp />
+      <Route exact path='/' component={LogIn} />
+      <Route exact path='/signup' component={SignUp} />
+      {/* //  <LogIn />
+      //  <SignUp /> */}
        </div>
     );
   }
