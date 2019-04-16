@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosWithAuth from '../utils/axiosAuth';
 
 //Actions//
 export const LOGIN_START = 'LOGIN_START';
@@ -40,7 +41,8 @@ export const login = creds => dispatch => {
 //get request 
 export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
-    axios.get('')
+    axiosWithAuth.get('')
+    // console.log('')
     .then(response => 
         dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data})
         )
@@ -54,6 +56,7 @@ export const getData = () => dispatch => {
 export const addSchool = newSchool => dispatch => {
     dispatch({ type: CREATE_DATA});
     axios.post('', newSchool)
+    // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
         )
