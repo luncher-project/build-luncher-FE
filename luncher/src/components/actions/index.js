@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosWithAuth from '../utils/axiosAuth';
 
 //Actions//
 export const LOGIN_START = 'LOGIN_START';
@@ -24,24 +25,44 @@ export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 
 
 //login post request 
-
-
-
-
+export const login = creds => dispatch => {
+    dispatch({ type: LOGIN_START });
+    return axios.post('', creds)
+    .then(response => {
+      localStorage.setItem('token', response.data.payload);
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data.payload})
+    })
+    .catch(error => 
+        dispatch({ type: LOGIN_FAILURE, payload: error.response})
+    )
+}
 
 
 //get request 
-
-
-
-
+export const getData = () => dispatch => {
+    dispatch({ type: FETCH_DATA});
+    axiosWithAuth.get('')
+    // console.log('')
+    .then(response => 
+        dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+        dispatch({ type: FETCH_DATA_FAILURE, payload: error}))
+}
 
 
 
 //post request 
-
-
-
+export const addSchool = newSchool => dispatch => {
+    dispatch({ type: CREATE_DATA});
+    axios.post('', newSchool)
+    // console.log('')
+    .then(response => 
+        dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+        ({ type: CREATE_DATA_FAILURE, payload: error}) )
+}
 
 
 

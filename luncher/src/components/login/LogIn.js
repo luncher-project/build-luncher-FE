@@ -6,6 +6,7 @@ import React from 'react';
 //import for actions//
 
 //import for styling?/
+import './LogIn.css'
 
 
 class LogIn extends React.Component {
@@ -39,8 +40,8 @@ login = event => {
 render() {
     return(
         <div>
-            <h2>Sign In- Luncher Account</h2>
-         <form onSubmit={this.login}>
+        <h2>Sign In- Luncher Account</h2> 
+        <form onSubmit={this.login}>
         <input className='email-field'
             type='text'
             placeholder='Email'
