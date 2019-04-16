@@ -7,6 +7,9 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import LogIn from './components/login/LogIn';
 import SignUp from './components/signup/SignUp';
 import AdminForm from './components/Admin form/AdminForm';
+//styling//
+
+
 
 
 class App extends Component {
@@ -26,6 +29,9 @@ class App extends Component {
   }
 }
 
+
+
 export default App;
 
 //need to protect admin page and add authentication for it 
+
