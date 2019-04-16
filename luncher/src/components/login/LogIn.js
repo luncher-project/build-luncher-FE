@@ -1,9 +1,9 @@
 import React from 'react';
 
 //for redux
-//connect function import//
-
-//import for actions//
+//connect function import////import for actions//
+import { connect } from 'react-redux';
+import { login } from '../actions';
 
 //import for styling?/
 import './LogIn.css'
@@ -32,7 +32,13 @@ handlerChanges= event => {
 
 login = event => {
     event.preventDefault();
-    this.props.login(this.state.credentials) 
+    this.props.login(this.state.credentials)
+    .then(() => {
+        //routes user back to where they were going when they got redirected or to the login page 
+        const route = this.props.location.state.from || '/';
+        //fires if login is successful
+        this.props.history.push('/')
+    })
 };
 
 
@@ -80,4 +86,19 @@ render() {
 
  //sign up needs to link to login...maybe turn into a link//
 
-export default LogIn;
+
+const mapStateToProps = state => {
+    console.log(state);
+  return {
+    error: state.error,
+    loggingIn: state.loggingIn
+  }
+}
+
+export default connect(
+    mapStateToProps,
+    { login }
+  )(LogIn);
+
+
+

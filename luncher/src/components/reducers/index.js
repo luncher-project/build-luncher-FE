@@ -40,12 +40,54 @@ import {
                     error: '',
                     loggingIn: true
                 };
-                case LOGIN_SUCCESS:
-                    return {
-                        ...state,
-                        error: '',
-                        loggingIn: false
-                    }
+            case LOGIN_SUCCESS:
+                return {
+                    ...state,
+                    error: '',
+                    loggingIn: false
+                };
+            case LOGIN_FAILURE: 
+                return {
+                    ...state,
+                    error: action.payload,
+                    loggingIn: false
+                };
+            case FETCH_DATA:
+                return {
+                    ...state,
+                    fetchingData: true,
+                }
+            case FETCH_DATA_SUCCESS:
+                return{
+                    ...state,
+                    fetchingData: false,
+                    data: [...state.data, ...action.payload]
+                };
+            case FETCH_DATA_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload,
+                    fetchingData: false
+                };
+            case CREATE_DATA: 
+            return {
+                ...state,
+                creatingData: true,
+                fetchingData: false
+            };
+            case CREATE_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                creatingData: true,
+                fetchingData: false
+            };
+            case CREATE_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                creatingData: false
+            };
                 default:
                     return state;
             }
