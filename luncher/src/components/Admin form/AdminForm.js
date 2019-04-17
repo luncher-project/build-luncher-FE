@@ -10,16 +10,17 @@ class AdminForm extends Component {
         super(props);
         this.state = {
             school: {
-              name: '',
-              adminName: '',
-              address: '',
-              city: '',
+              schoolName: '',
               state: '',
               zip: '',
-              email: '',
-              password: '',
-              comfirmPassword: '',
-              funds:''
+              fundsNeeded:''
+            //   adminName: '',
+            //   address: '',
+            //   city: '',
+            //   email: '',
+            //   password: '',
+            //   comfirmPassword: '',
+            
             }
         }
     }
@@ -43,6 +44,7 @@ onChange = event => {
 
 
 //submit form 
+//function that adds a friend //
 //bring in the post function, we'll call it addSchool //
 onSubmit = event => {
     event.preventDefault();
@@ -50,16 +52,17 @@ onSubmit = event => {
 
 this.setState({
     school: {
-        name: '',
-        adminName: '',
-        address: '',
-        city: '',
+        SchoolName: '',
         state: '',
         zip: '',
-        email: '',
-        password: '',
-        comfirmPassword: '',
-        funds:''
+        fundsNeeded:'',
+        // adminName: '',
+        // address: '',
+        // city: '',
+        // email: '',
+        // password: '',
+        // confirmPassword: '',
+        
     }
 })
 };
@@ -74,27 +77,9 @@ render() {
             <form onSubmit={this.onSubmit}> 
             <input 
             onChange={this.onChange}
-            name='name'
-            value={this.state.school.name}
-            placeholder='name'
-            />
-            <input 
-            onChange={this.onChange}
-            name='adminName'
-            value={this.state.school.adminName}
-            placeholder='adminName'
-            />
-             <input 
-            onChange={this.onChange}
-            name='address'
-            value={this.state.school.address}
-            placeholder='address'
-            />
-             <input 
-            onChange={this.onChange}
-            name='city'
-            value={this.state.school.city}
-            placeholder='city'
+            name='schoolName'
+            value={this.state.school.schoolName}
+            placeholder='schoolName'
             />
             <input 
             onChange={this.onChange}
@@ -109,6 +94,31 @@ render() {
             placeholder='zip'
             />
             <input 
+            onChange={this.onChange}
+            name='fundsNeeded'
+            value={this.state.school.fundsNeeded}
+            placeholder='fundsNeeded'
+            />
+            {/* <input 
+            onChange={this.onChange}
+            name='adminName'
+            value={this.state.school.adminName}
+            placeholder='adminName'
+            /> */}
+             {/* <input 
+            onChange={this.onChange}
+            name='address'
+            value={this.state.school.address}
+            placeholder='address'
+            /> */}
+             {/* <input 
+            onChange={this.onChange}
+            name='city'
+            value={this.state.school.city}
+            placeholder='city'
+            /> */}
+         
+            {/* <input 
             onChange={this.onChange}
             name='email'
             value={this.state.school.email}
@@ -125,14 +135,8 @@ render() {
             name='password'
             value={this.state.school.confirmPassword}
             placeholder='password'
-            />
-             <input 
-            onChange={this.onChange}
-            name='funds'
-            value={this.state.school.funds}
-            placeholder='funds'
-            />
-            <button>SIGN UP</button>
+            /> */}
+            <button>Add School</button>
             </form>
         </div>
     )

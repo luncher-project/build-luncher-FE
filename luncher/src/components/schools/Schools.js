@@ -1,30 +1,48 @@
 import React, { Component } from 'react';
 import School from './School';
+import { connect } from 'react-redux';
+
 
 
 class Schools extends Component {
-    render() {
-        return(
-            <div>
+ render() {
+     return (
+         <div>
+             <h1>School List</h1>
              <ul>
-                {this.props.schools.map(school => {
-                    return(
-                        <School 
+                 {this.props.schools.map(school => {
+                    return (
+                        <School
+                        key={school.id}
                         name={school.schoolName}
-                        id={school.id}
                         state={school.state}
                         zip={school.zip}
                         fundsNeeded={school.fundsNeeded}
-                        fundsReceived={school.fundsReceived}
-                        adminID={school.adminID}
-
+                        contact={school.contact}
                         />
                     )
-                })}
+                 })}
              </ul>
-            </div>
-        )
-    }
+         </div>
+     )
+ } 
 }
+    
+// School.defaultProps = {
+//     schools: ''
+//   };
 
-export default Schools;
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+      schools: state.data
+    }
+  }
+  
+  export default connect(
+    mapStateToProps, 
+    {})(Schools);
+  
+
+
+

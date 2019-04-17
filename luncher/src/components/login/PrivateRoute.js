@@ -21,7 +21,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     const mapStateToProps = state => {
         console.log(state);
         return {
-           error: state.error
+           error: state.error,
+          //  token: state.token
         }
       }
 
