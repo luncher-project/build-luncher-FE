@@ -27,7 +27,8 @@ export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 //login post request 
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
-    return axios.post('', creds)
+    return axios
+    .post('https://luncher-backend.herokuapp.com/api/login', creds)
     .then(response => {
       localStorage.setItem('token', response.data.payload);
       dispatch({ type: LOGIN_SUCCESS, payload: response.data.payload})
@@ -41,7 +42,8 @@ export const login = creds => dispatch => {
 //get request 
 export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
-    axiosWithAuth.get('')
+    axiosWithAuth()
+    .get('https://luncher-backend.herokuapp.com/api/schools')
     // console.log('')
     .then(response => 
         dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data})

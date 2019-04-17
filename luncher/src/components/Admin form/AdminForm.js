@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
-
-//styling//
+// redux//
+import { addSchool } from '../actions';
+import { connect } from 'react-redux';
 
 
 
@@ -139,4 +139,17 @@ render() {
 }
 }
 
-export default AdminForm;
+// setting up for redux 
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+     creatingData: state.creatingData,
+     error: state.error
+  }
+}
+
+export default connect(
+  mapStateToProps, 
+  {addSchool})(AdminForm);
+
+
