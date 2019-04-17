@@ -12,7 +12,7 @@ import './LogIn.css'
 class LogIn extends React.Component {
     state = {
         credentials: {
-            username: '',
+            email: '',
             password: ''
         }
     };
@@ -33,12 +33,8 @@ handlerChanges= event => {
 login = event => {
     event.preventDefault();
     this.props.login(this.state.credentials)
-    .then(() => {
-        //routes user back to where they were going when they got redirected or to the login page 
-        const route = this.props.location.state.from || '/';
+    // .then(() => this.props.history.push('/protected'));
         //fires if login is successful
-        this.props.history.push('/')
-    })
 };
 
 
@@ -48,14 +44,14 @@ render() {
         <div>
         <h2>Sign In- Luncher Account</h2> 
         <form onSubmit={this.login}>
-        <input className='email-field'
+        <input 
             type='text'
             placeholder='Email'
             name='email'
             onChange={this.handlerChanges}
             value={this.state.credentials.email}
             />
-        <input className='pwd-field'
+        <input 
             type='password'
             placeholder='Password'
             name='password'

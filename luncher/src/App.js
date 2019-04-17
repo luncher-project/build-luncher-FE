@@ -12,8 +12,11 @@ import Schools from './components/schools/Schools';
 import PrivateRoute from './components/login/PrivateRoute';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      schools: []
+    }
   }
 
 componentDidMount() {
@@ -27,12 +30,21 @@ componentDidMount() {
       <div className='nav-bar'>
       <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
-      <NavLink exact to='/protected'>Admin Form</NavLink>
+      <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
-      <PrivateRoute exact path='/protected' component={AdminForm} />
-      {/* <Schools schools={this.props.schools} /> */}
+      {/* <PrivateRoute exact path='/protected' component={AdminForm} /> */}
+  
+      <Route exact path='/login/admin-form/schools' 
+        render={ () => <Schools
+        schools={this.state.schools} /> } 
+        />
+        <Route exact path='/login/admin-form' 
+        render={ () => <AdminForm 
+        addSchool={this.addSchool} /> }
+         />
+   
        </div>
     );
   }

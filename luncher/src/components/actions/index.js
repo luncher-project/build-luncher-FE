@@ -1,5 +1,5 @@
-import axios from 'axios';
-import axiosWithAuth from '../utils/axiosAuth';
+
+import axios from '../axios/axios';
 
 //Actions//
 export const LOGIN_START = 'LOGIN_START';
@@ -27,11 +27,11 @@ export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 //login post request 
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
-    return axios
+     axios()
     .post('https://luncher-backend.herokuapp.com/api/login', creds)
     .then(response => {
-      localStorage.setItem('token', response.data.payload);
-      dispatch({ type: LOGIN_SUCCESS, payload: response.data.payload})
+      localStorage.setItem('token', response.data.token);
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data.token})
     })
     .catch(error => 
         dispatch({ type: LOGIN_FAILURE, payload: error.response})
@@ -42,7 +42,7 @@ export const login = creds => dispatch => {
 //get request 
 export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
-    axiosWithAuth()
+    axios()
     .get('https://luncher-backend.herokuapp.com/api/schools')
     // console.log('')
     .then(response => 
@@ -55,15 +55,15 @@ export const getData = () => dispatch => {
 
 
 //post request 
-export const addSchool = newSchool => dispatch => {
+export const addSchool = schools => dispatch => {
     dispatch({ type: CREATE_DATA});
-    axios.post('', newSchool)
+    axios.post('https://luncher-backend.herokuapp.com/api/schools', schools)
     // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
         )
     .catch(error => 
-        ({ type: CREATE_DATA_FAILURE, payload: error}) )
+    dispatch({ type: CREATE_DATA_FAILURE, payload: error}) )
 }
 
 

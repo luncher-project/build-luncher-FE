@@ -27,7 +27,8 @@ import {
         creatingData: false,
         deletingData: false,
         editingData: false,
-        error: ''
+        error: '',
+        token: localStorage.getItem('token')
     }
 
 
@@ -37,19 +38,19 @@ import {
             case LOGIN_START: 
                 return {
                     ...state,
-                    error: '',
                     loggingIn: true
                 };
             case LOGIN_SUCCESS:
+            console.log('success action');
                 return {
                     ...state,
-                    error: '',
-                    loggingIn: false
+                    loggingIn: false,
+                    token: action.payload
                 };
             case LOGIN_FAILURE: 
                 return {
                     ...state,
-                    error: action.payload,
+                    error: '',
                     loggingIn: false
                 };
             case FETCH_DATA:
