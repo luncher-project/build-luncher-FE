@@ -7,7 +7,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const FETCH_DATA = 'FETCH_DATA';
-export const FETCH_DATA_SUCCESS = 'FETCH_SMURF_SUCCESS';
+export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 
 
@@ -44,7 +44,6 @@ export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
     axios()
     .get('https://luncher-backend.herokuapp.com/api/schools')
-    // console.log('')
     .then(response => 
         dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data})
         )
@@ -57,7 +56,7 @@ export const getData = () => dispatch => {
 //post request 
 export const addSchool = schools => dispatch => {
     dispatch({ type: CREATE_DATA});
-    axios().post('https://luncher-backend.herokuapp.com/api/schools', schools)
+    axios().post('https://luncher-backend.herokuapp.com/api/admin/schools', schools)
     // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})

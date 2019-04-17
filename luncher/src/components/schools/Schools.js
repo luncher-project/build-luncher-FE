@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import School from './School';
+import { connect } from 'react-redux';
+
 
 
 class Schools extends Component {
@@ -26,13 +28,21 @@ class Schools extends Component {
  } 
 }
     
+// School.defaultProps = {
+//     schools: ''
+//   };
 
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+      schools: state.data
+    }
+  }
+  
+  export default connect(
+    mapStateToProps, 
+    {})(Schools);
+  
 
-School.defaultProps = {
-    schools: [],
-   };
-
-
-export default Schools;
 
 

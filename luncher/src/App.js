@@ -3,7 +3,7 @@ import './App.css';
 //add router//
 import { Route, NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getData } from './components/actions/index';
+import { getData} from './components/actions/index';
 //add components//
 import LogIn from './components/login/LogIn';
 import SignUp from './components/signup/SignUp';
@@ -31,6 +31,7 @@ componentDidMount() {
       <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
       <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
+      <NavLink exact to='/login/admin-form/schools'>Schools</NavLink>
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
@@ -54,7 +55,7 @@ componentDidMount() {
 
 //setting up for redux 
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
      data: state.data,
      fetchingData: state.fetchingData,

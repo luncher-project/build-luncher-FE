@@ -33,7 +33,7 @@ import {
 
 
     export const reducer = (state = initialState, action) => {
-        console.log('reducer', action);
+        console.log('reducer', action.payload);
         switch (action.type) {
             case LOGIN_START: 
                 return {
@@ -41,7 +41,7 @@ import {
                     loggingIn: true
                 };
             case LOGIN_SUCCESS:
-            console.log('success action');
+            // console.log('success action');
                 return {
                     ...state,
                     loggingIn: false,

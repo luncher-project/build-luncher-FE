@@ -44,6 +44,7 @@ onChange = event => {
 
 
 //submit form 
+//function that adds a friend //
 //bring in the post function, we'll call it addSchool //
 onSubmit = event => {
     event.preventDefault();
@@ -54,13 +55,13 @@ this.setState({
         SchoolName: '',
         state: '',
         zip: '',
-        fundsNeeded:''
+        fundsNeeded:'',
         // adminName: '',
         // address: '',
         // city: '',
         // email: '',
         // password: '',
-        // comfirmPassword: '',
+        // confirmPassword: '',
         
     }
 })
@@ -78,7 +79,7 @@ render() {
             onChange={this.onChange}
             name='schoolName'
             value={this.state.school.schoolName}
-            placeholder='school name'
+            placeholder='schoolName'
             />
             <input 
             onChange={this.onChange}
@@ -96,7 +97,7 @@ render() {
             onChange={this.onChange}
             name='fundsNeeded'
             value={this.state.school.fundsNeeded}
-            placeholder='funds needed'
+            placeholder='fundsNeeded'
             />
             {/* <input 
             onChange={this.onChange}
@@ -135,7 +136,7 @@ render() {
             value={this.state.school.confirmPassword}
             placeholder='password'
             /> */}
-            <button>SIGN UP</button>
+            <button>Add School</button>
             </form>
         </div>
     )
