@@ -32,8 +32,8 @@ handlerChanges= event => {
 
 login = event => {
     event.preventDefault();
-    this.props.login(this.state.credentials)
-    // .then(() => this.props.history.push('/protected'));
+    this.props.login(this.state.credentials);
+     this.props.history.push('/login/admin-form/schools');
         //fires if login is successful
 };
 

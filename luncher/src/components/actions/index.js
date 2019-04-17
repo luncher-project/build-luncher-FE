@@ -57,7 +57,7 @@ export const getData = () => dispatch => {
 //post request 
 export const addSchool = schools => dispatch => {
     dispatch({ type: CREATE_DATA});
-    axios.post('https://luncher-backend.herokuapp.com/api/schools', schools)
+    axios().post('https://luncher-backend.herokuapp.com/api/schools', schools)
     // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
