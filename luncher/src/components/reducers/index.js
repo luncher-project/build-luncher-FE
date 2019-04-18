@@ -74,7 +74,6 @@ import {
             return {
                 ...state,
                 creatingData: true,
-                fetchingData: false
             };
             case CREATE_DATA_SUCCESS:
             return {
@@ -89,6 +88,51 @@ import {
                 error: action.payload,
                 creatingData: false
             };
+            case EDIT_DATA: 
+            return {
+                ...state,
+                editingData: true,
+            };
+            case EDIT_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                editingData: true,
+                fetchingData: false
+            };
+            case EDIT_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                editingData: false
+            };
+            case DELETE_DATA: 
+            return {
+                ...state,
+                deletingData: true,
+            };
+            case DELETE_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                deletingData: true,
+                fetchingData: false
+            };
+            case DELETE_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                deletingData: false
+            };
+
+
+
+
+
+
+
+
+
                 default:
                     return state;
             }

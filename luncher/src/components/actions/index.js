@@ -24,7 +24,7 @@ export const EDIT_DATA_SUCCESS = 'EDIT_DATA_SUCCESS';
 export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 
 
-//login post request 
+//login post request for authorized user
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
      axios()
@@ -39,7 +39,7 @@ export const login = creds => dispatch => {
 }
 
 
-//get request 
+//get request from admin to see school list
 export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
     axios()
@@ -53,10 +53,10 @@ export const getData = () => dispatch => {
 
 
 
-//post request 
-export const addSchool = schools => dispatch => {
+//post request to add school
+export const addSchool = school => dispatch => {
     dispatch({ type: CREATE_DATA});
-    axios().post('https://luncher-backend.herokuapp.com/api/admin/schools', schools)
+    axios().post('https://luncher-backend.herokuapp.com/api/admin/school', school)
     // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
@@ -67,10 +67,26 @@ export const addSchool = schools => dispatch => {
 
 
 
-//delete request
+// //delete request
+export const deleteSchool = () => dispatch => {
+dispatch({ type: DELETE_DATA});
+axios().delete('https://luncher-backend.herokuapp.com/api/admin/school')
+.then(response => 
+    dispatch({ type: DELETE_DATA_SUCCESS, payload: response.data})
+    )
+.catch(error => 
+dispatch({ type: DELETE_DATA_FAILURE, payload: error}) )
+}
 
 
+// edit/update request 
+export const updateSchool =  school => dispatch => {
+    dispatch({ type: EDIT_DATA});
+    axios().put('https://luncher-backend.herokuapp.com/api/admin/school', school)
+    .then(response => 
+        dispatch({ type: EDIT_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+    dispatch({ type: EDIT_DATA_FAILURE, payload: error}) )
+    }
 
-
-
-//edit/update request 

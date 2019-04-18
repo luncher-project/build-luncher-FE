@@ -57,8 +57,8 @@ componentDidMount() {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-     data: state.data,
-     fetchingData: state.fetchingData,
+     school: state.school,
+     fetchingSchool: state.fetchingSchool,
      error: state.error
   }
 }

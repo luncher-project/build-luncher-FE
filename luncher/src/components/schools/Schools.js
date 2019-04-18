@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 
 class Schools extends Component {
+  
+
  render() {
      return (
          <div>
