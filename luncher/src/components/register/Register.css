@@ -1,0 +1,164 @@
+.register {
+    height: 500px;	
+    width: 790px;	
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    margin-top: 5%;
+    /* box-shadow:  10px 20px 20px 20px gray; */
+}
+
+.register-paragraph {
+    height: 181px;	
+    width: 303px;	
+    color: #606062;	
+    font-family: "San Francisco Display";	
+    font-size: 24px;	
+    font-weight: bold;	
+    line-height: 29px;
+    position: relative;
+    right: 100px;
+    top: 57px;
+    /* border: 1px solid red; */
+}
+
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    float: right;
+    /* border: 1px solid red; */
+    position: relative;
+    bottom: 150px;
+    box-shadow:  10px 20px 20px 20px gray;
+    border: 30px solid #1356A4;
+}
+
+.first-name-label1 {
+    height: 19px;	
+    width: 125px;	
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 19px;
+    position: relative;
+    top: 60px;
+    right: 10px;
+}
+
+.last-name-label2 {
+    height: 19px;	
+    width: 125px;	
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 19px;
+    position: relative;
+    bottom: 6px;
+    left: 226px;
+}
+
+.email-label3 {
+    height: 19px;	
+    width: 116px;	
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 19px;
+    
+}
+
+.password-label4 {
+    height: 19px;	
+    width: 90.8px;
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 19px;
+    
+}
+
+.role-label5 {
+    height: 38px;	
+    width: 140.24px;	
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 19px; 
+    position: relative;
+    left: 200px;
+    bottom: 66px;
+}
+
+.first-name-field {
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    position: relative;
+    display: inline-block;
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    right: 120px;
+    top: 60px;
+   
+}
+
+.last-name-field {
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    position: relative;
+    display: inline-block;
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    left: 120px;
+    bottom: 7px;
+  
+}
+
+.email-field {
+    height: 32px;	
+    width: 486px;	
+    border: 2px solid #E3E4EB;
+}
+
+.password-field {
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    position: relative;
+    display: inline-block;
+    right: 120px;
+}
+
+.role-field {
+    height: 32px;	
+    width: 226px;	
+    border: 2px solid #E3E4EB;
+    position: relative;
+    display: inline-block;
+    bottom: 86px;
+    left: 120px;
+}
+
+.register-btn { 
+    height: 42px;	
+    width: 176px;	
+    border-radius: 6px;	
+    background-color: #B6F076;	
+    color: #1356A4;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    font-family: Avenir;
+    font-size: 21px;
+    margin: 0 auto;
+    margin-bottom: 2%;
+    position: relative;
+    bottom: 50px;
+}

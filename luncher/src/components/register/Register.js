@@ -1,4 +1,5 @@
 import React from 'react';
+// import book from '../'
 
 //for redux
 //connect function import////import for actions//
@@ -44,45 +45,57 @@ registerUser = event => {
 
 render() {
     return(
+        <div className='register'>
         <div>
-        <h2>Register for a Luncher Account</h2> 
-        <form onSubmit={this.registerUser}>
-        <input 
+            <p className='register-paragraph'>Let's get you added to the Luncher list of schools. Once you're signed up,
+             donors can select your school and start donating to your lunch fund.</p>
+            </div>
+            {/* <img className='register-img'
+            src={book}
+            alt={'Apple on top of books'} /> */}
+        <form onSubmit={this.registerUser} className='register-form'>
+          {/* <h2>Register for a Luncher Account</h2>  */}
+          <label for='name' className='first-name-label1'>First Name*</label>
+        <input className='first-name-field'
             type='text'
             placeholder='First Name'
             name='firstName'
             onChange={this.handlerChanges}
             value={this.state.credentials.firstName}
             />
-             <input 
+            <label for='name' className='last-name-label2'>Last Name*</label>
+             <input className='last-name-field'
             type='text'
             placeholder='Last Name'
             name='lastName'
             onChange={this.handlerChanges}
             value={this.state.credentials.lastName}
             />
-            <input 
+            <label for='email' className='email-label3'>Email Address*</label>
+            <input className='email-field'
             type='text'
             placeholder='Email'
             name='email'
             onChange={this.handlerChanges}
             value={this.state.credentials.email}
             />
-        <input 
+            <label for='password' className='password-label4'>Password*</label>
+        <input className='password-field'
             type='password'
             placeholder='Password'
             name='password'
             onChange={this.handlerChanges}
             value={this.state.credentials.password}
             />
-        <input 
+            <label for='role' className='role-label5'>Role*</label>
+        <input className='role-field'
             type='text'
             placeholder='Role'
             name='role'
             onChange={this.handlerChanges}
             value={this.state.credentials.role}
             />
-        <button>SIGN UP</button>
+        <button className='register-btn'>SIGN UP</button>
          </form>
         </div>
     )
