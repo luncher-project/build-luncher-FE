@@ -31,20 +31,20 @@ class App extends Component {
       <div className='nav-bar'>
       <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
-      <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
-      <NavLink exact to='/login/admin-form/schools'>Schools</NavLink>
-      <Route exact path='/register' component={Register} />
+      <NavLink exact to='/admin-form'>Admin Form</NavLink>
+      <NavLink exact to='/protected'>Schools</NavLink>
+     
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
       {/* <Route exact path='/register' component={Register} /> */}
       {/* <PrivateRoute exact path='/protected' component={AdminForm} /> */}
   
-      <Route exact path='/login/admin-form/schools' 
-        render={ () => <Schools
-        schools={this.state.schools} /> } 
-        />
-        <Route exact path='/login/admin-form' 
+      <PrivateRoute exact path='/protected' component={Schools} />
+        {/* // render={ () => <Schools */}
+        {/* // schools={this.state.schools} /> } 
+        // /> */}
+        <Route exact path='/admin-form' 
         render={ () => <AdminForm 
         addSchool={this.addSchool} /> }
          />
@@ -52,6 +52,7 @@ class App extends Component {
         render={ () => <Register 
         addUser={this.addUser} /> }
          />
+      {/* <Route exact path='/register' component={Register} /> */}
        </div>
     );
   }

@@ -33,7 +33,7 @@ handlerChanges= event => {
 login = event => {
     event.preventDefault();
     this.props.login(this.state.credentials);
-     this.props.history.push('/login/admin-form/schools');
+     this.props.history.push('/schools');
         //fires if login is successful
 };
 
@@ -42,8 +42,8 @@ login = event => {
 render() {
     return(
         <div>
-        <h2>Sign In- Luncher Account</h2> 
-        <form onSubmit={this.login}>
+        <h2 className='login-header'>Sign In- Luncher Account</h2> 
+        <form onSubmit={this.login} className='login-form'>
         <input 
             type='text'
             placeholder='Email'
@@ -70,10 +70,10 @@ render() {
         name='user'
         value='Donor'
         />
-        <button>SIGN IN</button>
+        <button className='login-btn'>SIGN IN</button>
          </form>
-         <div>
-            <p>Don't have an account? Sign up?</p>
+         <div className='bottom-div'>
+            <p className='login-paragraph'>Don't have an account? Sign up?</p>
          </div>
         </div>
     )
