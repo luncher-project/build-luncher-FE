@@ -19,9 +19,9 @@ class App extends Component {
     }
   }
 
-componentDidMount() {
-  this.props.getData();
-}
+// componentDidMount() {
+//   this.props.getData();
+// }
 
 
   render() {
@@ -57,15 +57,15 @@ componentDidMount() {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-     school: state.school,
-     fetchingSchool: state.fetchingSchool,
+    //  school: state.school,
+    //  fetchingSchool: state.fetchingSchool,
      error: state.error
   }
 }
 
 export default connect(
   mapStateToProps, 
-  {getData})(App);
+  {})(App);
 
 
 

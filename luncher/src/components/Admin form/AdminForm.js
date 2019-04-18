@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // redux//
-import { addSchool, updateSchool, deleteSchool} from '../actions';
+import { addSchool, updateSchool, deleteSchool, getAdmin} from '../actions';
 
 import { connect } from 'react-redux';
 

@@ -23,6 +23,10 @@ export const EDIT_DATA = 'EDIT_DATA';
 export const EDIT_DATA_SUCCESS = 'EDIT_DATA_SUCCESS';
 export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 
+export const FETCH_ADMIN = 'FETCH_ADMIN';
+export const FETCH_ADMIN_SUCCESS = 'FETCH_ADMIN_SUCCESS';
+export const FETCH_ADMIN_FAILURE = 'FETCH_ADMIN_FAILURE';
+
 
 //login post request for authorized user
 export const login = creds => dispatch => {
@@ -51,6 +55,19 @@ export const getData = () => dispatch => {
         dispatch({ type: FETCH_DATA_FAILURE, payload: error}))
 }
 
+
+
+
+export const getAdmin = () => dispatch => {
+    dispatch({ type: FETCH_ADMIN});
+    axios()
+    .get('https://luncher-backend.herokuapp.com/api/admin/school')
+    .then(response => 
+        dispatch({ type: FETCH_ADMIN_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+        dispatch({ type: FETCH_ADMIN_FAILURE, payload: error}))
+}
 
 
 //post request to add school

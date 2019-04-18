@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import School from './School';
 import { connect } from 'react-redux';
-
+import { getData} from '../actions/index';
 
 
 class Schools extends Component {
-  
+    componentDidMount() {
+        this.props.getData();
+     }
 
  render() {
      return (
@@ -16,7 +18,7 @@ class Schools extends Component {
                     return (
                         <School
                         key={school.id}
-                        name={school.schoolName}
+                        schoolName={school.schoolName}
                         state={school.state}
                         zip={school.zip}
                         fundsNeeded={school.fundsNeeded}
@@ -43,7 +45,7 @@ const mapStateToProps = state => {
   
   export default connect(
     mapStateToProps, 
-    {})(Schools);
+    {getData})(Schools);
   
 
 
