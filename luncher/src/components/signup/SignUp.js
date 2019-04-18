@@ -9,10 +9,14 @@ const SignUp = () => {
             <div>
             <button>
                 
-            <Link to='/signup/adminform'>I am a School Administrator</Link>
+            <Link to='/signup/register'>I am a School Administrator</Link>
             
             </button>
-            <button>I am a Donor</button>
+            <button>
+                
+                 <Link to='/signup/register'>I am a Donor</Link>
+
+                </button>
         </div>    
        <div>
             <p>Already have an account?</p>

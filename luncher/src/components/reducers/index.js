@@ -18,7 +18,15 @@ import {
 
     EDIT_DATA,
     EDIT_DATA_SUCCESS,
-    EDIT_DATA_FAILURE } from '../actions';
+    EDIT_DATA_FAILURE,
+
+    FETCH_ADMIN,
+    FETCH_ADMIN_SUCCESS,
+    FETCH_ADMIN_FAILURE,
+
+    REGISTER_DATA,
+    REGISTER_DATA_SUCCESS,
+    REGISTER_DATA_FAILURE } from '../actions';
 
     const initialState = {
         data: [],
@@ -27,6 +35,8 @@ import {
         creatingData: false,
         deletingData: false,
         editingData: false,
+        fetchingAdmin: false,
+        registerUser: false,
         error: '',
         token: localStorage.getItem('token')
     }
@@ -62,7 +72,7 @@ import {
                 return{
                     ...state,
                     fetchingData: false,
-                    data: [...state.data, ...action.payload]
+                    data: action.payload
                 };
             case FETCH_DATA_FAILURE:
                 return {
@@ -74,7 +84,6 @@ import {
             return {
                 ...state,
                 creatingData: true,
-                fetchingData: false
             };
             case CREATE_DATA_SUCCESS:
             return {
@@ -89,6 +98,78 @@ import {
                 error: action.payload,
                 creatingData: false
             };
+            case EDIT_DATA: 
+            return {
+                ...state,
+                editingData: true,
+            };
+            case EDIT_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                editingData: true,
+                fetchingData: false
+            };
+            case EDIT_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                editingData: false
+            };
+            case DELETE_DATA: 
+            return {
+                ...state,
+                deletingData: true,
+            };
+            case DELETE_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                deletingData: true,
+                fetchingData: false
+            };
+            case DELETE_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                deletingData: false
+            };
+            case FETCH_ADMIN: 
+            return {
+                ...state,
+                fetchingAdmin: true,
+            };
+            case FETCH_ADMIN_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                fetchingAdmin: true,
+                fetchingData: false
+            };
+            case FETCH_ADMIN_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingAdmin: false
+            };
+            case REGISTER_DATA: 
+            return {
+                ...state,
+                registerUser: true,
+            };
+            case REGISTER_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                registerUser: false,
+                fetchingData: false
+            };
+            case REGISTER_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                registerUser: false
+            }
                 default:
                     return state;
             }

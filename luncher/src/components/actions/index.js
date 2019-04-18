@@ -23,8 +23,16 @@ export const EDIT_DATA = 'EDIT_DATA';
 export const EDIT_DATA_SUCCESS = 'EDIT_DATA_SUCCESS';
 export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
 
+export const FETCH_ADMIN = 'FETCH_ADMIN';
+export const FETCH_ADMIN_SUCCESS = 'FETCH_ADMIN_SUCCESS';
+export const FETCH_ADMIN_FAILURE = 'FETCH_ADMIN_FAILURE';
 
-//login post request 
+export const REGISTER_DATA = 'REGISTER_DATA';
+export const REGISTER_DATA_SUCCESS = 'REGISTER_DATA_SUCCESS ';
+export const REGISTER_DATA_FAILURE = 'REGISTER_DATA_FAILURE';
+
+
+//login post request for authorized user
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
      axios()
@@ -39,7 +47,7 @@ export const login = creds => dispatch => {
 }
 
 
-//get request 
+//get request from admin to see school list
 export const getData = () => dispatch => {
     dispatch({ type: FETCH_DATA});
     axios()
@@ -53,10 +61,25 @@ export const getData = () => dispatch => {
 
 
 
-//post request 
-export const addSchool = schools => dispatch => {
+//get request for 
+export const getAdmin = () => dispatch => {
+    dispatch({ type: FETCH_ADMIN});
+    axios()
+    .get('https://luncher-backend.herokuapp.com/api/admin/school')
+    .then(response => 
+        dispatch({ type: FETCH_ADMIN_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+        dispatch({ type: FETCH_ADMIN_FAILURE, payload: error}))
+}
+
+
+
+
+//post request to add school
+export const addSchool = school => dispatch => {
     dispatch({ type: CREATE_DATA});
-    axios().post('https://luncher-backend.herokuapp.com/api/admin/schools', schools)
+    axios().post('https://luncher-backend.herokuapp.com/api/admin/school', school)
     // console.log('')
     .then(response => 
         dispatch({ type: CREATE_DATA_SUCCESS, payload: response.data})
@@ -65,12 +88,42 @@ export const addSchool = schools => dispatch => {
     dispatch({ type: CREATE_DATA_FAILURE, payload: error}) )
 }
 
+//post request to register admin/donor
+export const addUser = user => dispatch => {
+    dispatch({ type: REGISTER_DATA});
+    axios().post('https://luncher-backend.herokuapp.com/api/register', user)
+    // console.log('')
+    .then(response => 
+        dispatch({ type: REGISTER_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+    dispatch({ type: REGISTER_DATA_FAILURE, payload: error}) )
+}
 
 
-//delete request
 
 
 
+// //delete request
+export const deleteSchool = () => dispatch => {
+dispatch({ type: DELETE_DATA});
+axios().delete('https://luncher-backend.herokuapp.com/api/admin/school')
+.then(response => 
+    dispatch({ type: DELETE_DATA_SUCCESS, payload: response.data})
+    )
+.catch(error => 
+dispatch({ type: DELETE_DATA_FAILURE, payload: error}) )
+}
 
 
-//edit/update request 
+// edit/update request 
+export const updateSchool =  school => dispatch => {
+    dispatch({ type: EDIT_DATA});
+    axios().put('https://luncher-backend.herokuapp.com/api/admin/school', school)
+    .then(response => 
+        dispatch({ type: EDIT_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+    dispatch({ type: EDIT_DATA_FAILURE, payload: error}) )
+    }
+

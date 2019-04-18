@@ -9,6 +9,7 @@ import LogIn from './components/login/LogIn';
 import SignUp from './components/signup/SignUp';
 import AdminForm from './components/Admin form/AdminForm';
 import Schools from './components/schools/Schools';
+import Register from './components/register/Register';
 import PrivateRoute from './components/login/PrivateRoute';
 
 class App extends Component {
@@ -19,9 +20,9 @@ class App extends Component {
     }
   }
 
-componentDidMount() {
-  this.props.getData();
-}
+// componentDidMount() {
+//   this.props.getData();
+// }
 
 
   render() {
@@ -30,22 +31,28 @@ componentDidMount() {
       <div className='nav-bar'>
       <NavLink exact to='/'>LogIn</NavLink>
       <NavLink exact to='/signup'>SignUp</NavLink>
-      <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
-      <NavLink exact to='/login/admin-form/schools'>Schools</NavLink>
+      <NavLink exact to='/admin-form'>Admin Form</NavLink>
+      <NavLink exact to='/protected'>Schools</NavLink>
+     
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
+      {/* <Route exact path='/register' component={Register} /> */}
       {/* <PrivateRoute exact path='/protected' component={AdminForm} /> */}
   
-      <Route exact path='/login/admin-form/schools' 
-        render={ () => <Schools
-        schools={this.state.schools} /> } 
-        />
-        <Route exact path='/login/admin-form' 
+      <PrivateRoute exact path='/protected' component={Schools} />
+        {/* // render={ () => <Schools */}
+        {/* // schools={this.state.schools} /> } 
+        // /> */}
+        <Route exact path='/admin-form' 
         render={ () => <AdminForm 
         addSchool={this.addSchool} /> }
          />
-   
+      <Route exact path='/signup/register' 
+        render={ () => <Register 
+        addUser={this.addUser} /> }
+         />
+      {/* <Route exact path='/register' component={Register} /> */}
        </div>
     );
   }
@@ -57,15 +64,15 @@ componentDidMount() {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-     data: state.data,
-     fetchingData: state.fetchingData,
+    //  school: state.school,
+    //  fetchingSchool: state.fetchingSchool,
      error: state.error
   }
 }
 
 export default connect(
   mapStateToProps, 
-  {getData})(App);
+  {})(App);
 
 
 

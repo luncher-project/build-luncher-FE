@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // redux//
-import { addSchool } from '../actions';
-import { connect } from 'react-redux';
+import { addSchool, updateSchool, deleteSchool, getAdmin} from '../actions';
 
+import { connect } from 'react-redux';
 
 
 class AdminForm extends Component {
@@ -27,6 +27,7 @@ class AdminForm extends Component {
 
 
   //for form input   
+  //functional setState
 onChange = event => {
     console.log('school handler is working');
     event.persist();
@@ -48,11 +49,12 @@ onChange = event => {
 //bring in the post function, we'll call it addSchool //
 onSubmit = event => {
     event.preventDefault();
-    this.props.addSchool(this.state.school)
+    this.props.addSchool(this.state.school);
+    // this.props.history.push('/');
 
 this.setState({
     school: {
-        SchoolName: '',
+        schoolName: '',
         state: '',
         zip: '',
         fundsNeeded:'',
@@ -61,15 +63,28 @@ this.setState({
         // city: '',
         // email: '',
         // password: '',
-        // confirmPassword: '',
-        
+        // confirmPassword: '', 
     }
 })
 };
 
+//update  school function
+editSchool = event => {
+    event.preventDefault();
+    this.props.updateSchool(this.state.school);
+}
+
+//delete school function
+deletingSchool = event => {
+    event.preventDefault();
+    this.props.deleteSchool(this.state.school);
+}
+
+
+
 render() {
     return(
-        <div>
+        <div className='form'>
             <div>
             <p>Let's get you added to the Luncher list of schools. Once you're signed up,
              donors can select your school and start donating to your lunch fund.</p>
@@ -79,67 +94,32 @@ render() {
             onChange={this.onChange}
             name='schoolName'
             value={this.state.school.schoolName}
-            placeholder='schoolName'
+            placeholder='School Name'
             />
             <input 
             onChange={this.onChange}
             name='state'
             value={this.state.school.state}
-            placeholder='state'
+            placeholder='State'
             />
             <input 
             onChange={this.onChange}
             name='zip'
             value={this.state.school.zip}
-            placeholder='zip'
+            placeholder='Zip'
             />
             <input 
             onChange={this.onChange}
             name='fundsNeeded'
             value={this.state.school.fundsNeeded}
-            placeholder='fundsNeeded'
+            placeholder='Funds Needed'
             />
-            {/* <input 
-            onChange={this.onChange}
-            name='adminName'
-            value={this.state.school.adminName}
-            placeholder='adminName'
-            /> */}
-             {/* <input 
-            onChange={this.onChange}
-            name='address'
-            value={this.state.school.address}
-            placeholder='address'
-            /> */}
-             {/* <input 
-            onChange={this.onChange}
-            name='city'
-            value={this.state.school.city}
-            placeholder='city'
-            /> */}
-         
-            {/* <input 
-            onChange={this.onChange}
-            name='email'
-            value={this.state.school.email}
-            placeholder='email'
-            />
-            <input 
-            onChange={this.onChange}
-            name='password'
-            value={this.state.school.password}
-            placeholder='password'
-            />
-            <input 
-            onChange={this.onChange}
-            name='password'
-            value={this.state.school.confirmPassword}
-            placeholder='password'
-            /> */}
             <button>Add School</button>
+            <button onClick={this.deletingSchool}>Delete School</button>
+            <button onClick={this.editSchool}>Edit School</button>
             </form>
         </div>
-    )
+    );
 }
 }
 
@@ -154,6 +134,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps, 
-  {addSchool})(AdminForm);
+  {addSchool, updateSchool, deleteSchool})(AdminForm);
 
 

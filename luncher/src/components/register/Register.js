@@ -3,17 +3,20 @@ import React from 'react';
 //for redux
 //connect function import////import for actions//
 import { connect } from 'react-redux';
-import { login } from '../actions';
+import { addUser } from '../actions';
 
 //import for styling?/
-import './LogIn.css'
+import './Register.css'
 
 
-class LogIn extends React.Component {
+class Register extends React.Component {
     state = {
         credentials: {
             email: '',
-            password: ''
+            password: '',
+            firstName: '',
+            lastName: '',
+            role: ''
         }
     };
 
@@ -30,10 +33,10 @@ handlerChanges= event => {
 //login fn will go here 
 //login will be name of action creator/axios request we'll call login//
 
-login = event => {
+registerUser = event => {
     event.preventDefault();
-    this.props.login(this.state.credentials);
-     this.props.history.push('/schools');
+    this.props.addUser(this.state.credentials);
+    //  this.props.history.push('/login/admin-form/schools');
         //fires if login is successful
 };
 
@@ -42,9 +45,23 @@ login = event => {
 render() {
     return(
         <div>
-        <h2 className='login-header'>Sign In- Luncher Account</h2> 
-        <form onSubmit={this.login} className='login-form'>
+        <h2>Register for a Luncher Account</h2> 
+        <form onSubmit={this.registerUser}>
         <input 
+            type='text'
+            placeholder='First Name'
+            name='firstName'
+            onChange={this.handlerChanges}
+            value={this.state.credentials.firstName}
+            />
+             <input 
+            type='text'
+            placeholder='Last Name'
+            name='lastName'
+            onChange={this.handlerChanges}
+            value={this.state.credentials.lastName}
+            />
+            <input 
             type='text'
             placeholder='Email'
             name='email'
@@ -59,22 +76,14 @@ render() {
             value={this.state.credentials.password}
             />
         <input 
-        type='radio'
-        id='School Administrator'
-        name='user'
-        value='School Administrator'
-        />
-         <input 
-        type='radio'
-        id='Donor'
-        name='user'
-        value='Donor'
-        />
-        <button className='login-btn'>SIGN IN</button>
+            type='text'
+            placeholder='Role'
+            name='role'
+            onChange={this.handlerChanges}
+            value={this.state.credentials.role}
+            />
+        <button>SIGN UP</button>
          </form>
-         <div className='bottom-div'>
-            <p className='login-paragraph'>Don't have an account? Sign up?</p>
-         </div>
         </div>
     )
 }
@@ -87,14 +96,15 @@ const mapStateToProps = state => {
     console.log(state);
   return {
     error: state.error,
-    loggingIn: state.loggingIn
+    loggingIn: state.loggingIn,
+    registerUser: state.registerUser
   }
 }
 
 export default connect(
     mapStateToProps,
-    { login }
-  )(LogIn);
+    { addUser }
+  )(Register);
 
 
 
