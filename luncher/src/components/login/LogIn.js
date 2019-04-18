@@ -45,7 +45,7 @@ render() {
         <form onSubmit={this.login} className='login-form'>
          <h2 className='login-header'>Sign In- Luncher Account</h2> 
         <div className='email-field'>
-        <label for="email" className='email-label'>Email Address*</label>
+        <label for='email' className='email-label'>Email Address*</label>
         <input 
             type='text'
             placeholder='Email'

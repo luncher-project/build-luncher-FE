@@ -1,7 +1,7 @@
 .login {
     /* display: flex; */
     /* border: 1px solid red; */
-    height: 809px;	
+    height: 500px;	
     width: 790px;
     background-color: #FFFFFF;
     margin: 0 auto;
@@ -104,9 +104,11 @@ input {
     width: 176px;	
     border-radius: 6px;	
     background-color: #B6F076;	
+    color: #1356A4;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
     margin: 0 auto;
     font-family: Avenir;
+    font-size: 21px;
 }
 
 .login-paragraph {
