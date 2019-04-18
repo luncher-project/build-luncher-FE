@@ -27,6 +27,10 @@ export const FETCH_ADMIN = 'FETCH_ADMIN';
 export const FETCH_ADMIN_SUCCESS = 'FETCH_ADMIN_SUCCESS';
 export const FETCH_ADMIN_FAILURE = 'FETCH_ADMIN_FAILURE';
 
+export const REGISTER_DATA = 'REGISTER_DATA';
+export const REGISTER_DATA_SUCCESS = 'REGISTER_DATA_SUCCESS ';
+export const REGISTER_DATA_FAILURE = 'REGISTER_DATA_FAILURE';
+
 
 //login post request for authorized user
 export const login = creds => dispatch => {
@@ -57,7 +61,7 @@ export const getData = () => dispatch => {
 
 
 
-
+//get request for 
 export const getAdmin = () => dispatch => {
     dispatch({ type: FETCH_ADMIN});
     axios()
@@ -68,6 +72,8 @@ export const getAdmin = () => dispatch => {
     .catch(error => 
         dispatch({ type: FETCH_ADMIN_FAILURE, payload: error}))
 }
+
+
 
 
 //post request to add school
@@ -81,6 +87,20 @@ export const addSchool = school => dispatch => {
     .catch(error => 
     dispatch({ type: CREATE_DATA_FAILURE, payload: error}) )
 }
+
+//post request to register admin/donor
+export const addUser = user => dispatch => {
+    dispatch({ type: REGISTER_DATA});
+    axios().post('https://luncher-backend.herokuapp.com/api/register', user)
+    // console.log('')
+    .then(response => 
+        dispatch({ type: REGISTER_DATA_SUCCESS, payload: response.data})
+        )
+    .catch(error => 
+    dispatch({ type: REGISTER_DATA_FAILURE, payload: error}) )
+}
+
+
 
 
 

@@ -22,7 +22,11 @@ import {
 
     FETCH_ADMIN,
     FETCH_ADMIN_SUCCESS,
-    FETCH_ADMIN_FAILURE} from '../actions';
+    FETCH_ADMIN_FAILURE,
+
+    REGISTER_DATA,
+    REGISTER_DATA_SUCCESS,
+    REGISTER_DATA_FAILURE } from '../actions';
 
     const initialState = {
         data: [],
@@ -32,6 +36,7 @@ import {
         deletingData: false,
         editingData: false,
         fetchingAdmin: false,
+        registerUser: false,
         error: '',
         token: localStorage.getItem('token')
     }
@@ -146,6 +151,24 @@ import {
                 ...state,
                 error: action.payload,
                 fetchingAdmin: false
+            };
+            case REGISTER_DATA: 
+            return {
+                ...state,
+                registerUser: true,
+            };
+            case REGISTER_DATA_SUCCESS:
+            return {
+                ...state,
+                data: [...action.payload],
+                registerUser: false,
+                fetchingData: false
+            };
+            case REGISTER_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                registerUser: false
             }
                 default:
                     return state;

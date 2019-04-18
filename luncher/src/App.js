@@ -9,6 +9,7 @@ import LogIn from './components/login/LogIn';
 import SignUp from './components/signup/SignUp';
 import AdminForm from './components/Admin form/AdminForm';
 import Schools from './components/schools/Schools';
+import Register from './components/register/Register';
 import PrivateRoute from './components/login/PrivateRoute';
 
 class App extends Component {
@@ -32,9 +33,11 @@ class App extends Component {
       <NavLink exact to='/signup'>SignUp</NavLink>
       <NavLink exact to='/login/admin-form'>Admin Form</NavLink>
       <NavLink exact to='/login/admin-form/schools'>Schools</NavLink>
+      <Route exact path='/register' component={Register} />
       </div>
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
+      {/* <Route exact path='/register' component={Register} /> */}
       {/* <PrivateRoute exact path='/protected' component={AdminForm} /> */}
   
       <Route exact path='/login/admin-form/schools' 
@@ -45,7 +48,10 @@ class App extends Component {
         render={ () => <AdminForm 
         addSchool={this.addSchool} /> }
          />
-   
+      <Route exact path='/signup/register' 
+        render={ () => <Register 
+        addUser={this.addUser} /> }
+         />
        </div>
     );
   }
