@@ -11,6 +11,7 @@ import AdminForm from './components/Admin form/AdminForm';
 import Schools from './components/schools/Schools';
 import Register from './components/register/Register';
 import PrivateRoute from './components/login/PrivateRoute';
+import Navigation from './components/navigation/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -28,13 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <div className='nav-bar'>
-      <NavLink exact to='/'>LogIn</NavLink>
-      <NavLink exact to='/signup'>SignUp</NavLink>
-      <NavLink exact to='/admin-form'>Admin Form</NavLink>
-      <NavLink exact to='/protected'>Schools</NavLink>
-     
-      </div>
+      <Navigation />
       <Route exact path='/' component={LogIn} />
       <Route exact path='/signup' component={SignUp} />
       {/* <Route exact path='/register' component={Register} /> */}
@@ -52,6 +47,7 @@ class App extends Component {
         render={ () => <Register 
         addUser={this.addUser} /> }
          />
+         
       {/* <Route exact path='/register' component={Register} /> */}
        </div>
     );

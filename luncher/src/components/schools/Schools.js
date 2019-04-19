@@ -12,7 +12,7 @@ class Schools extends Component {
  render() {
      return (
          <div>
-             <h1>School List</h1>
+             <h1 className='title'>Schools In Need of Funds</h1>
              <ul>
                  {this.props.schools.map(school => {
                     return (
