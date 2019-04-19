@@ -1,0 +1,33 @@
+.form-container {
+    display: flex;
+}
+
+.form-header {
+    font-family: "San Francisco Display";
+    color: #8A8A8C;
+}
+
+
+.form {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.form-btn {
+    height: 42px;	
+    width: 176px;	
+    border-radius: 6px;	
+    background-color: #B6F076;	
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    margin: 0 auto;
+    margin-bottom: 2%;
+    display: flex;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    font-family: Avenir;
+    padding-left: 5%;
+    font-size: 21px;
+}

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { addSchool, updateSchool, deleteSchool, getAdmin} from '../actions';
 
 import { connect } from 'react-redux';
+import './AdminForm.css';
 
 
 class AdminForm extends Component {
@@ -84,12 +85,9 @@ deletingSchool = event => {
 
 render() {
     return(
-        <div className='form'>
-            <div>
-            <p>Let's get you added to the Luncher list of schools. Once you're signed up,
-             donors can select your school and start donating to your lunch fund.</p>
-            </div>
-            <form onSubmit={this.onSubmit}> 
+        <div className='form-container'>
+            <form onSubmit={this.onSubmit} className='form'> 
+            <h2 className='form-header'>Add School below</h2> 
             <input 
             onChange={this.onChange}
             name='schoolName'
@@ -114,9 +112,9 @@ render() {
             value={this.state.school.fundsNeeded}
             placeholder='Funds Needed'
             />
-            <button>Add School</button>
-            <button onClick={this.deletingSchool}>Delete School</button>
-            <button onClick={this.editSchool}>Edit School</button>
+            <button className='form-btn'>Add School</button>
+            <button className='form-btn' onClick={this.deletingSchool}>Delete School</button>
+            <button className='form-btn' onClick={this.editSchool}>Edit School</button>
             </form>
         </div>
     );

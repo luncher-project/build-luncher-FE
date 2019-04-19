@@ -5,6 +5,7 @@
     width: 790px;
     background-color: #FFFFFF;
     margin: 0 auto;
+    margin-bottom: 5%;
 }
 
 .login-header {
@@ -89,6 +90,8 @@
 input {
     /* align-items: center;
     justify-content: center; */
+    display: flex;
+    flex-direction: columns;
     height: 32px;	
     width: 486px;	
     margin: 0 auto;
