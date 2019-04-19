@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import School from './School';
 import { connect } from 'react-redux';
 import { getData} from '../actions/index';
-
+import './School.css';
 
 class Schools extends Component {
     componentDidMount() {

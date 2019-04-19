@@ -41,9 +41,11 @@ login = event => {
 
 render() {
     return(
-        <div>
-        <h2 className='login-header'>Sign In- Luncher Account</h2> 
+        <div className='login'>  
         <form onSubmit={this.login} className='login-form'>
+         <h2 className='login-header'>Sign In- Luncher Account</h2> 
+        <div className='email-field'>
+        <label for='email' className='email-label'>Email Address*</label>
         <input 
             type='text'
             placeholder='Email'
@@ -51,6 +53,9 @@ render() {
             onChange={this.handlerChanges}
             value={this.state.credentials.email}
             />
+         </div>   
+         <div className='text-field'>
+         <label for='password' className='pwd-label'>Password</label>
         <input 
             type='password'
             placeholder='Password'
@@ -58,13 +63,16 @@ render() {
             onChange={this.handlerChanges}
             value={this.state.credentials.password}
             />
-        <input 
+        </div>    
+        <label for='School Administrator' className='school-label'>School Administrator</label>
+        <input className='radio-btn'
         type='radio'
         id='School Administrator'
         name='user'
         value='School Administrator'
         />
-         <input 
+         <label for='Donor' className='donor-label'>Donor</label>
+         <input className='radio-btn'
         type='radio'
         id='Donor'
         name='user'
@@ -73,7 +81,7 @@ render() {
         <button className='login-btn'>SIGN IN</button>
          </form>
          <div className='bottom-div'>
-            <p className='login-paragraph'>Don't have an account? Sign up?</p>
+            <p className='login-paragraph'>Don't have an account? Sign up</p>
          </div>
         </div>
     )

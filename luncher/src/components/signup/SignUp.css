@@ -1,0 +1,93 @@
+.signup {
+    /* display: flex; */
+    /* border: 1px solid red; */
+    height: 500px;	
+    width: 790px;	
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    margin-top: 5%;
+    box-shadow:  10px 20px 20px 20px gray;
+}
+
+.signup-header {
+    width: 370px;
+    height: 34px;
+    font-family: "San Francisco Display";
+    font-weight: 500;
+    color: #8A8A8C;
+    text-align: center;
+    line-height: 34px;
+    font-size: 28px;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+.admin-btn {
+    display: flex;
+    flex-direction: column;
+    height: 60px;	
+    width: 388px;
+    opacity: 100%;
+    background-color: #1356A4;
+    color: white;
+    border-radius: 6px;	
+    font-size: 21px;
+    margin: 0 auto;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    padding: 2% 0% 0% 10%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    font-family: Avenir;
+}
+
+.admin-btn:hover {
+    color: white;
+}
+
+.donor-btn {
+    display: flex;
+    flex-direction: column;
+    height: 60px;	
+    width: 388px;
+    opacity: 100%;
+    background-color: #1356A4;
+    color: white;
+    border-radius: 6px;	
+    font-size: 21px;
+    margin: 0 auto;
+    padding: 2% 0% 0% 16%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    font-family: Avenir;
+}
+.donor-btn:hover {
+    color: white;
+}
+
+
+.signup-paragraph {
+    position: relative;
+    top: 100px;
+    left: 150px;
+    height: 25px;	
+    width: 239px;	
+    color: #8A8A8C;	
+    font-family: "San Francisco Display";	
+    font-size: 21px;	
+    font-weight: 500;	
+    line-height: 25px;	
+    text-align: center;
+}
+
+.signin-btn {
+    position: relative;
+    left: 100px;
+    top: 40px;
+    height: 59px;	
+    width: 176px;
+    border-radius: 6px;	
+    background-color: #B6F076;	
+    color: #1356A4;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    font-size: 21px;
+    font-family: Avenir;
+}
