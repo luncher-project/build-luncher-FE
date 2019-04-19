@@ -22,13 +22,13 @@ Project Details:
 There are kids today in this country who go without student lunches. This app allows schools to broadcast the needs of their stidents by declaring amount of donations that would need to be fulfilled in order to provide lunches for those that go without.
 
 This app was built using:
--React
--Redux
--Material-UI
+- React
+- Redux
+- Material-UI
 
 Features:
--Authorized administrators are able to login and see a list of schools that require donations.
--Authorized adminstrators are able to get, add, delete, and edit school information.
+- Authorized administrators are able to login and see a list of schools that require donations.
+- Authorized adminstrators are able to get, add, delete, and edit school information.
 
 
 
